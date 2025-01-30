@@ -21,8 +21,9 @@ export default function Home() {
   return (
     <div className="min-h-screen flex flex-col md:flex-row bg-[#292A2D]">
       {/* Sidebar */}
-      <div className="w-full md:w-16 bg-[#212327] flex md:flex-col items-center py-4 space-x-4 md:space-x-0 md:space-y-4">
-        <div className="flex md:flex-col gap-3">
+      <div className="w-full md:w-16 bg-[#212327] flex md:flex-col items-center py-4 px-4 md:px-0 fixed bottom-0 md:static space-x-6 md:space-x-0 md:space-y-4">
+        {/* Top Section */}
+        <div className="flex md:flex-col gap-4">
           <Image
             src={img1}
             width={32}
@@ -34,8 +35,11 @@ export default function Home() {
           <MessageSquare className="text-gray-400" />
         </div>
 
-        <div className="flex-grow hidden md:block" />
-        <div className="flex flex-col space-x-4 md:space-x-0 md:space-y-4">
+        {/* Spacer for Desktop */}
+        <div className="hidden md:block flex-grow" />
+
+        {/* Bottom Section (Navigation Icons) */}
+        <div className="flex md:flex-col space-x-6 md:space-x-0 md:space-y-4">
           <Smartphone className="w-6 h-6 text-gray-400 hover:text-white" />
           <User className="w-6 h-6 text-gray-400 hover:text-white" />
         </div>
