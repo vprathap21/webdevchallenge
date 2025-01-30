@@ -2,7 +2,15 @@
 // app/page.tsx
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { Smartphone, User, Globe, Send, Paperclip } from "lucide-react";
+import {
+  Smartphone,
+  User,
+  Globe,
+  Send,
+  Paperclip,
+  PanelRightClose,
+  MessageSquare,
+} from "lucide-react";
 import { useState } from "react";
 import img1 from "../public/image.png";
 import img2 from "../public/image2.png";
@@ -13,14 +21,18 @@ export default function Home() {
     <div className="min-h-screen flex">
       {/* Sidebar */}
       <div className="w-16 bg-[#212327] flex flex-col items-center py-4 space-y-4">
-        <div className="w-8 h-8 rounded-lg flex items-center justify-center">
-          <Image
-            src={img1}
-            width={32}
-            height={32}
-            alt="Logo"
-            className="rounded-lg"
-          />
+        <div className="flex flex-col gap-3">
+          <div className="w-8 h-8 rounded-lg flex items-center justify-center">
+            <Image
+              src={img1}
+              width={32}
+              height={32}
+              alt="Logo"
+              className="rounded-lg"
+            />
+          </div>{" "}
+          <PanelRightClose className="text-white" />
+          <MessageSquare className="text-white" />
         </div>
 
         <div className="flex-grow" />
