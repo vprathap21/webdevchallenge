@@ -1,101 +1,118 @@
+"use client";
+// app/page.tsx
+import { motion } from "framer-motion";
 import Image from "next/image";
+import { Smartphone, User, Globe, Send, Paperclip } from "lucide-react";
+import { useState } from "react";
+import img1 from "../public/image.png";
+import img2 from "../public/image2.png";
 
 export default function Home() {
+  const [message, setMessage] = useState("");
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.js
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="min-h-screen flex">
+      {/* Sidebar */}
+      <div className="w-16 bg-[#212327] flex flex-col items-center py-4 space-y-4">
+        <div className="w-8 h-8 rounded-lg flex items-center justify-center">
+          <Image
+            src={img1}
+            width={32}
+            height={32}
+            alt="Logo"
+            className="rounded-lg"
+          />
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+
+        <div className="flex-grow" />
+        <button className="w-8 h-8 text-gray-400 hover:text-white">
+          <Smartphone className="w-6 h-6" />
+        </button>
+        <button className="w-8 h-8 text-gray-400 hover:text-white">
+          <User className="w-6 h-6" />
+        </button>
+      </div>
+
+      {/* Main Content */}
+      <div className="flex-1 bg-[#292A2D] flex flex-col items-center justify-center p-4">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="flex flex-col items-center mb-8"
         >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+          <div className="flex flex-col items-center">
+            <div className=" flex items-center justify-start">
+              <Image
+                src={img2}
+                width={64}
+                height={64}
+                alt="DeepSeek Logo"
+                className=" "
+              />
+              <h1 className="text-white text-xl mb-2">Hi, I'm DeepSeek.</h1>
+            </div>
+
+            <p className="text-gray-400">How can I help you today?</p>
+          </div>
+        </motion.div>
+
+        {/* Chat Input */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="w-full max-w-2xl"
         >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+          <div className="relative">
+            <div className=" bg-[#404045] rounded-xl p-3 space-x-3">
+              <div>
+                <input
+                  type="text"
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                  placeholder="Message DeepSeek"
+                  className="flex-1 bg-transparent text-white focus:outline-none px-4 pb-8"
+                />
+              </div>
+              <div className="relative flex items-center justify-between">
+                <div className="flex items-center space-x-3">
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="flex items-center gap-2 px-4 py-2 bg-blue-800 text-blue-200 rounded-xl text-sm font-medium shadow-md"
+                  >
+                    <span className="text-lg">🌀</span>
+                    DeepThink (R1)
+                  </motion.button>
+
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="flex items-center gap-2 px-3 py-2 bg-gray-600 text-gray-300 rounded-xl text-sm shadow-md"
+                  >
+                    <Globe className="w-4 h-4" />
+                    Search
+                  </motion.button>
+                </div>
+
+                <div className="flex items-center space-x-3">
+                  <button className="text-gray-400 hover:text-gray-300">
+                    <Paperclip className="w-5 h-5" />
+                  </button>
+                  <motion.button
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                    className="bg-gray-600 p-2 rounded-full flex items-center justify-center text-gray-300 hover:bg-gray-500"
+                    disabled={!message}
+                  >
+                    <Send className="w-5 h-5" />
+                  </motion.button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+      </div>
     </div>
   );
 }
